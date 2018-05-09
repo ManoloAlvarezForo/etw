@@ -1,4 +1,24 @@
-.fontsize a {
+.a_custom{
     font-size: 1.3rem;
-    margin: 5px;
+    margin: 3px;
+    transition: 0.3s;
 }
+
+.a_custom:hover{
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.is_selected {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 3px;
+}
+
+.is_selected:hover {
+    color: white;
+    font-weight: bold;
+}
+
