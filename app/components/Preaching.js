@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PreachingForm from '../components/PreachingForm';
 
 class Preaching extends Component {
   constructor(props) {
@@ -19,21 +20,7 @@ class Preaching extends Component {
           </header>
           <section className="modal-card-body">
             <div style={{ color: "black" }} className="content">
-              <p>Dias de Predicacion</p>
-              <ul style={{ fontWeight: 'bold' }}>
-                {
-                  this.props.preaching.preachings.map((p, index) =>
-                    <li key={index}>
-                      <div>{p.day} - {p.date}</div>
-                      <ul>
-                        {
-                          p.preachingEvents.map((pe, index) => <li key={index}>{pe.time} {pe.preachingLead} {pe.moment} </li>)
-                        }
-                      </ul>
-                    </li>
-                  )
-                }
-              </ul>
+              <PreachingForm preaching={this.props.preaching} />
             </div>
           </section>
           <footer style={{ height: '55px' }} className="modal-card-foot">

@@ -53,9 +53,9 @@ class Preachings extends Component {
                 SALIDAS A LA PREDICACION
               </div>
               <div style={{ width: '42px' }}>
-                <Link onClick={this.showNewPreachingDialog} style={{ transition: '0.3s', fontSize: '20px', fontWeight: 'bold', borderRadius: '5px', boxShadow: 'rgba(0, 0, 0, 0.2) 0px 3px 8px 1px' }} className="button is-primary" to="">
+                <button onClick={this.showNewPreachingDialog} style={{ transition: '0.3s', fontSize: '20px', fontWeight: 'bold', borderRadius: '5px', boxShadow: 'rgba(0, 0, 0, 0.2) 0px 3px 8px 1px' }} className="button is-primary">
                   +
-                 </Link>
+                 </button>
               </div>
             </div>
             <br></br>
