@@ -5,8 +5,7 @@ import App from './containers/App';
 import HomePage from './containers/HomePage';
 import CounterPage from './containers/CounterPage';
 import LoginPage from './containers/LoginPage';
-import PreachingPage from './containers/PreachingPage';
-
+import PreachingsPage from './containers/PreachingsPage';
 
 export default () => (
   <App>
@@ -14,7 +13,7 @@ export default () => (
       <Route path="/counter" component={CounterPage} />
       <Route exact path="/" component={LoginPage} />
       <Route path="/home" component={HomePage} />
-      <Route path="/preaching" component={PreachingPage} />
+      <Route path="/preachings" component={PreachingsPage} />
     </Switch>
   </App>
 );
