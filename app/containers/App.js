@@ -1,25 +1,37 @@
 // @flow
-import * as React from 'react';
+import React, { Component } from 'react';
 import Login from './LoginPage'
-import Sidenav from '../components/Sidenav';
-import Toolbar from '../components/Toolbar';
+import Sidenav from '../components/Sidenav/Sidenav';
+import Toolbar from '../components/Toolbar/Toolbar';
 
 type Props = {
   children: React.Node
 };
 
-export default class App extends React.Component {
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  content: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column'
+  }
+}
+
+export default class App extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-     <div style={{display: 'flex', flexDirection: 'row'}}>
+      <div style={styles.container}>
         <Sidenav />
-        <div style={{ width: '100%', display: 'flex', flexDirection: 'column'}}>
-         <Toolbar />
-         {this.props.children}
+        <div style={styles.content}>
+          <Toolbar />
+          {this.props.children}
         </div>
       </div>
     );

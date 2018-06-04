@@ -19,4 +19,4 @@ const ConfirmModal = ({
     );
 }
 
-export default Preaching;
+export default ConfirmModal;
