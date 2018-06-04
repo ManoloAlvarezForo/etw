@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Preachings.css'
-import Preaching from '../components/Preaching';
-import { getPreachingModel } from '../actions/preachings'
+import { getPreachingModel } from '../../actions/preachings'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as TitleActions from '../actions/title';
-import LargeModal from './LargeModal';
+import * as TitleActions from '../../actions/title';
+import LargeModal from '../Modals/LargeModal';
+import PreachingForm from '../Preaching/PreachingForm';
 
 class Preachings extends Component {
   constructor(props) {

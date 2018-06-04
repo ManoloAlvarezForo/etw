@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import * as TitleActions from '../actions/title'
+import * as TitleActions from '../../actions/title'
 import { bindActionCreators } from 'redux';
 
 const styles = {
