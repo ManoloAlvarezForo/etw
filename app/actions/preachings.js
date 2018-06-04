@@ -4,7 +4,9 @@ export const GET_PREACHING_MODEL = 'GET_PREACHING_MODEL';
 const preachingsList = [
   {
     id: 1,
-    date: 'Del 1 de Enero de 2018 al 3 de Enero de 2018',
+    fullDate: '01 Enero 2018 - 03 Enero 2018',
+    initDate: '01 Enero 2018',
+    endDate: '03 Enero 2018',
     preachings: [
       {
         date: '1/1/2018',
@@ -62,7 +64,9 @@ const preachingsList = [
   },
   {
     id: 2,
-    date: 'Del 4 de Enero de 2018 al 7 de Enero de 2018',
+    fullDate: '04 Enero 2018 - 07 Enero 2018',
+    initDate: '04 Enero 2018',
+    endDate: '07 Enero 2018',
     preachings: [
       {
         date: '1/1/2018',
