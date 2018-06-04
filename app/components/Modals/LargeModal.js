@@ -11,7 +11,8 @@ const styles = {
     height: '55px'
   },
   title: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: 'white'
   },
   sectionContent: {
     backgroundColor: 'rgb(222, 222, 222)',
@@ -28,7 +29,7 @@ const LargeModal = ({ modalStyle, closeDialog, content, title }) => {
     <div id="customModal" className={modalStyle}>
       <div className="modal-background"></div>
       <div id="customModal" style={ styles.card } className="modal-card animated slideInUp">
-        <header style={ styles.head } className="modal-card-head">
+        <header style={ styles.head } className="modal-card-head main-background">
           <p style={ styles.title } className="modal-card-title">{title}</p>
           <button className="delete" onClick={closeDialog} aria-label="close"></button>
         </header>
