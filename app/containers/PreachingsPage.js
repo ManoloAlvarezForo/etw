@@ -5,7 +5,8 @@ import * as PreachingsActions from '../actions/preachings';
 
 const mapStateToProps = state => {
   return {
-    preachings: state.preachings
+    preachings: state.preachings,
+    preaching: state.preaching
   };
 }
 

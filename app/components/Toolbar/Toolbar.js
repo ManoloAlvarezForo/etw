@@ -11,7 +11,8 @@ const styles = {
     title: {
         fontSize: '1.8rem',
         margin: '10px',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: 'white'
     }
 }
 

@@ -1,5 +1,6 @@
 export const LOAD_PREACHINGS = 'LOAD_PREACHINGS';
 export const GET_PREACHING_MODEL = 'GET_PREACHING_MODEL';
+export const CLEAN_PREACHING_MODEL = 'CLEAN_PREACHING_MODEL';
 
 const preachingsList = [
   {
@@ -69,7 +70,7 @@ const preachingsList = [
     endDate: '07 Enero 2018',
     preachings: [
       {
-        date: '1/1/2018',
+        date: '04 Enero 2018',
         day: 'Lunes',
         month: 'Enero',
         year: '2018',
@@ -87,11 +88,18 @@ const preachingsList = [
             time: '04:15',
             moment: 'Tarde',
             territory: 'A-18'
+          },
+          {
+            preachingLead: 'Luciano Pereira',
+            side: 'Calles',
+            time: '07:00',
+            moment: 'Noche',
+            territory: 'A-18'
           }
         ]
       },
       {
-        date: '2/1/2018',
+        date: '05 Enero 2018',
         day: 'Martes',
         month: 'Enero',
         year: '2018',
@@ -106,7 +114,7 @@ const preachingsList = [
         ]
       },
       {
-        date: '3/1/2018',
+        date: '06 Enero 2018',
         day: 'Miercoles',
         month: 'Enero',
         year: '2018',
@@ -115,6 +123,21 @@ const preachingsList = [
             preachingLead: 'Gaston Delafuente',
             side: 'Casa Delafuente',
             time: '08:15',
+            moment: 'Manana',
+            territory: 'B-1'
+          }
+        ]
+      },
+      {
+        date: '07 Enero 2018',
+        day: 'Jueves',
+        month: 'Enero',
+        year: '2018',
+        preachingEvents: [
+          {
+            preachingLead: 'Antonio Banderas',
+            side: 'Casa Resmit',
+            time: '09:15',
             moment: 'Manana',
             territory: 'B-1'
           }
@@ -146,6 +169,15 @@ export const getPreachingModel = (preachingId?) => {
     dispatch({
       type: GET_PREACHING_MODEL,
       preachingModel: preachingModel
+    });
+  };
+}
+
+export const cleanPreachingModel = () => {
+  return dispatch => {
+    dispatch({
+      type: CLEAN_PREACHING_MODEL,
+      preachingModel: { date: '', preachings: []}
     });
   };
 }

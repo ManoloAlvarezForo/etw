@@ -4,13 +4,16 @@
  */
 @import "~font-awesome/css/font-awesome.css";
 @import "~bulma/css/bulma.css";
+@import "~animate.css";
+
 body {
   color: white;
   height: 100vh;
-  background-color: #232c39;
-  /* background-image: linear-gradient(45deg, rgba(156, 39, 176, 0.678) 10%, rgb(42, 0, 78));
-   */
-   background-image: linear-gradient(to right, #d7d2cc 0%, #2e2f4d 100%);
+  /* background-color: #232c39; */
+  
+  
+   /* background-image: linear-gradient(to right, #d7d2cc 0%, #2e2f4d 100%); */
+   /* background-image: linear-gradient(to left, #d7d2cc 0%, #1e1f44 100%); */
   /* background-image: linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%); */
  background-blend-mode: normal, lighten, soft-light;
   /* background-color: #6f019a;
@@ -21,12 +24,17 @@ body {
   margin: 0 !important;
 }
 
+.main-background {
+  background-image: linear-gradient(to left, rgba(146, 0, 171, 0.678) 10%, rgb(42, 0, 78));
+}
+
 .sidenav-background {
-  background-color: #232c39;
+  /* background-color: #232c39; */
   /* background-image: linear-gradient(45deg, rgba(156, 39, 176, 0.678) 10%, rgb(42, 0, 78)); */
   /* background-image: linear-gradient(45deg, rgba(39, 18, 43, 0.678) 10%, rgb(110, 51, 160)); */
   /* background-image: linear-gradient(45deg, rgba(39, 18, 43, 0.678) 10%, rgb(143, 51, 160)); */
-  background-image: linear-gradient(45deg, rgba(39, 18, 43, 0.678) 10%, rgb(74, 109, 167));
+  /* background-image: linear-gradient(45deg, rgba(39, 18, 43, 0.678) 10%, rgb(74, 109, 167)); */
+  background: none;
   box-shadow: rgba(0, 0, 0, 0.2) 4px 3px 8px 1px;
 }
 
@@ -79,155 +87,11 @@ hr {
   background-color: rgb(0, 188, 212) !important;
 }
 
-.accordion {
-  background: #eee;
-  border: 1px solid #999;
-  padding: 0 1em 24px;
-  width: 500px;
-  margin: 2em auto;
-}
-
-.accordion h2 {
-  margin: 12px 0;
-}
-
-.accordion .section {
-  border-bottom: 1px solid #ccc;
-  padding: 0 1em;
-  background: #fff;
-}
-
-.accordion h3 a {
-  display: block;
-  font-weight: normal;
-  padding: 1em 0;
-}
-
-.accordion h3 a:hover {
-  text-decoration: none;
-}
-
-.accordion h3 + div {
-  height: 0;
-  overflow: hidden;
-  -webkit-transition: height 0.3s ease-in;
-  -moz-transition: height 0.3s ease-in;
-  -o-transition: height 0.3s ease-in;
-  -ms-transition: height 0.3s ease-in;
-  transition: height 0.3s ease-in;
-}
-
-.accordion :target h3 a {
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.accordion :target h3 + div {
-  height: 100px;
-}
-
-.accordion .section.large:target h3 + div {
-  overflow: auto;
-}
-
-
-.Collapsible {
-  background-color: gray;
-}
-
-.Collapsible__contentInner {
-  padding: 10px;
-  border: 1px solid lightGrey;
-  border-top: 0;
-}
-.Collapsible__contentInner p {
-    margin-bottom: 10px;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.Collapsible__contentInner p:last-child{
-  margin-bottom: 0;
-}
-
-.Collapsible__trigger:after {
-  font-family: 'FontAwesome';
-  content: '\f107';
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  display: block;
-  transition: transform 300ms;
-}
-
-.Collapsible__trigger.is-open:after {
-  transform: rotateZ(180deg);
-}
-
-.Collapsible__trigger.is-disabled {
-  opacity: 0.5;
-  background-color: grey;
-}
-
-.Collapsible__trigger {
-  display: block;
-  font-weight: 400;
-  text-decoration: none;
-  color: gray;
-  position: relative;
-  border: 1px solid white;
-  padding: 10px;
-  background: gray;
-  color: white;
-}
-
-.CustomTriggerCSS {
-  background-color: lightcoral;
-  transition: background-color 200ms ease;
-}
-
-.CustomTriggerCSS--open {
-  background-color: darkslateblue;
-}
-
-.Collapsible__custom-sibling {
-  padding: 5px;
-  font-size: 12px;
-  background-color: #CBB700;
-  color: black;
-}
-
-/* * {
-  box-sizing: border-box;
-}
-*:before, *:after {
-  box-sizing: border-box;
-}
-
-.main {
-  position: absolute;
-  background: #f12e50;
-  top: 50%;
-  left: 50%;
-  width: 40%;
-  max-width: 30em;
-  min-width: 15em;
-  transform: translate(-50%, -50%);
-  overflow: hidden;
-}
-.main .title {
-  color: #fff;
-  background: #c80e3d;
-  text-align: center;
-  font-weight: 700;
-  line-height: 1.2em;
-  padding: 1em;
-} */
-
 .section {
   width: 100%;
   padding: 0px;
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 4px 0;
   border-radius: 5px 5px 0 0;
 }
@@ -299,7 +163,7 @@ hr {
   background: white;
   cursor: pointer;
   font-weight: 700;
-  color: #888;
+  color: black;
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 1em;

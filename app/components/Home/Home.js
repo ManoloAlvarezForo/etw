@@ -16,7 +16,7 @@ class Home extends Component {
   }
   render() {
     return (
-      <div style={{ height: '100vh' }}>
+      <div style={{ height: '100vh' }} className="animated pulse">
         <div style={{ height: '100vh', margin: '10px', backgroundColor: '#dedede', borderRadius: '5px' }}>
           <div style={{ padding: '10px', height: '100vh', color: '#3e3d3d' }}>
             <div style={{ fontWeight: 'bold', color: 'black' }}>Teocratic Wall</div>
