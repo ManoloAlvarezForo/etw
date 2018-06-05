@@ -94,6 +94,11 @@ class Preachings extends Component {
     this.props.cleanPreachingModel();
   };
 
+  savePreaching = () => {
+    alert(JSON.stringify(this.props.preaching));
+    this.closeDialog();
+  }
+
   render() {
     return (
       <div className="animated pulse" style={styles.mainContainer}>
@@ -128,6 +133,7 @@ class Preachings extends Component {
               content={<PreachingForm preaching={this.props.preaching} />}
               modalStyle={this.state.modalStyle}
               closeDialog={this.closeDialog}
+              save={ this.savePreaching }
             />
           </div>
         </div>

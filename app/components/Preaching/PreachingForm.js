@@ -5,7 +5,12 @@ import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
 import styles from "./PreachingForm.css";
 import Section from '../Utils/Section';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import CustomPopover from '../CustomPopover/CustomPopover';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -27,7 +32,20 @@ const CustomDatePicker = ({ hintText }) => {
 class PreachingForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      menuList: [
+        "Maniana", "Tarde", "Noche"
+      ],
+      localPreaching: {day: '', date: '', preachingEvents: []} 
+    }
   }
+
+  componentDidMount() {
+    this.setState({
+      localPreaching: this.props.preaching
+    })
+  }
+
   render() {
     return (
       <div style={{ flexDirection: "column", display: "flex" }}>
@@ -57,7 +75,7 @@ class PreachingForm extends React.Component {
                   {preachingDay.preachingEvents.map((preachingEvent, index) => (
 
                     <div style={{ paddingLeft: '5px', paddingRight: '5px', marginTop: '5px', marginBottom: '5px', borderRadius: '5px', display: 'flex', flexDirection: 'row', boxShadow:'rgba(0, 0, 0, 0.2) 0 1px 4px 0' }} key={index}>
-                      <div style={{ width: '10%', textAlign: 'center' }}>{preachingEvent.moment}</div>
+                       <CustomPopover menuList={this.state.menuList} dataModel= {preachingEvent.moment} />
                       <div style={{ width: '10%', textAlign: 'center' }}>{preachingEvent.time}</div>
                       <div style={{ width: '30%', textAlign: 'center' }}>{preachingEvent.side}</div>
                       <div style={{ width: '30%', textAlign: 'center' }}>{preachingEvent.preachingLead}</div>
