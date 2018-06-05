@@ -24,7 +24,7 @@ const styles = {
   }
 }
 
-const LargeModal = ({ modalStyle, closeDialog, content, title }) => {
+const LargeModal = ({ modalStyle, closeDialog, content, title, save }) => {
   return (
     <div id="customModal" className={modalStyle}>
       <div className="modal-background"></div>
@@ -39,7 +39,7 @@ const LargeModal = ({ modalStyle, closeDialog, content, title }) => {
           </div>
         </section>
         <footer style={ styles.footer} className="modal-card-foot">
-          <button className="button is-primary">Guardar</button>
+          <button className="button is-primary" onClick= {save}>Guardar</button>
           <button onClick={closeDialog} className="button">Cancelar</button>
         </footer>
       </div>
