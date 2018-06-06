@@ -6,14 +6,16 @@ import HomePage from './containers/HomePage';
 import CounterPage from './containers/CounterPage';
 import LoginPage from './containers/LoginPage';
 import PreachingsPage from './containers/PreachingsPage';
+import PreachingPage from './containers/PreachingPage';
 
 export default () => (
   <App>
     <Switch>
-      <Route path="/counter" component={CounterPage} />
+      <Route exact path="/counter" component={CounterPage} />
       <Route exact path="/" component={LoginPage} />
-      <Route path="/home" component={HomePage} />
-      <Route path="/preachings" component={PreachingsPage} />
+      <Route exact path="/home" component={HomePage} />
+      <Route exact path="/preachings" component={PreachingsPage}/>
+      <Route exact path="/preaching/:id" component={PreachingPage} />
     </Switch>
   </App>
 );

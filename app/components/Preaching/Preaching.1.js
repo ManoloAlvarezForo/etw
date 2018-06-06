@@ -14,7 +14,6 @@ import CustomPopover from '../CustomPopover/CustomPopover';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as PreachingsActions from '../../actions/preachings';
-import { withRouter } from 'react-router';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -43,10 +42,6 @@ class Preaching extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.props.getPreachingModel(parseInt(this.props.id));
-  }
-
 
   selectedAction = (parent) => {
     let index = this.props.preaching.preachingsDays.indexOf(parent);
@@ -57,8 +52,7 @@ class Preaching extends React.Component {
  
   render() {
     return (
-      <div style={{ height: '100vh', margin: '10px', backgroundColor: 'rgb(222, 222, 222)', borderRadius: '5px'}} className="animated slideInRight">
-      <div style={{ flexDirection: "column", display: "flex",height: '100vh', margin: '10px', overflow: 'hidden' }}>
+      <div style={{ flexDirection: "column", display: "flex" }}>
         <div className={styles.date_selection}>
           <CustomDatePicker hintText="Fecha de Inicio" />
           <div style={{ display: "flex", alignItems: "center" }}>
@@ -68,7 +62,7 @@ class Preaching extends React.Component {
           </div>
           <CustomDatePicker hintText="Fecha Final" />
         </div>
-        <div style={{ marginTop: "5px", marginBottom: "5px", overflow: 'auto', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', }}>
+        <div style={{ marginTop: "5px", marginBottom: "5px" }}>
           {this.props.preaching.preachingsDays.map((preachingDay, index) => (
             <Section
               key={index}
@@ -98,15 +92,13 @@ class Preaching extends React.Component {
           ))}
         </div>
       </div>
-      </div>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
-    preaching: state.preaching,
-    id: ownProps.match.params.id
+    preaching: state.preaching
   };
 }
 
@@ -114,4 +106,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(PreachingsActions, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Preaching));
+export default connect(mapStateToProps, mapDispatchToProps)(Preaching);
