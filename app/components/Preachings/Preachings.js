@@ -125,7 +125,7 @@ class Preachings extends Component {
               ))}
             </div>
             <LargeModal
-              title=""
+              title= {this.props.preaching.initDate + " - " + this.props.preaching.endDate}
               content={<PreachingForm preaching={this.props.preaching} />}
               modalStyle={this.state.modalStyle}
               closeDialog={this.closeDialog}

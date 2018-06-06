@@ -40,7 +40,8 @@ class PreachingForm extends React.Component {
         "Maniana", "Tarde", "Noche"
       ],
       localPreaching: { day: '', date: '', preachingEvents: [] },
-      localModel: { moment:'', time:'', side: '', preachingLead: '', territory: ''}
+      localModel: { moment:'', time:'', side: '', preachingLead: '', territory: ''},
+      preachingEvent: {}
     }
   }
 
@@ -50,7 +51,7 @@ class PreachingForm extends React.Component {
     })
   }
 
-  selectedAction = (moment) => {
+  selectedAction = (value, moment) => {
     let prevProps = this.props.preaching;
     prevProps.moment = moment;
     this.props.updatePreaching(prevProps);
@@ -86,7 +87,7 @@ class PreachingForm extends React.Component {
                   {preachingDay.preachingEvents.map((preachingEvent, index) => (
 
                     <div style={{ paddingLeft: '5px', paddingRight: '5px', marginTop: '5px', marginBottom: '5px', borderRadius: '5px', display: 'flex', flexDirection: 'row', boxShadow: 'rgba(0, 0, 0, 0.2) 0 1px 4px 0' }} key={index}>
-                      <CustomPopover menuList={this.state.menuList} dataModel={preachingEvent.moment} onSelectedAction={this.selectedAction} />
+                      <CustomPopover value={preachingEvent} menuList={this.state.menuList} dataModel={preachingEvent.moment} onSelectedAction={this.selectedAction} />
                       <div style={{ width: '10%', textAlign: 'center' }}>{preachingEvent.time}</div>
                       <div style={{ width: '30%', textAlign: 'center' }}>{preachingEvent.side}</div>
                       <div style={{ width: '30%', textAlign: 'center' }}>{preachingEvent.preachingLead}</div>
