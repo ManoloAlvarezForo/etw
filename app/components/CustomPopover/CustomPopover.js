@@ -12,7 +12,7 @@ const muiTheme = getMuiTheme({
     }
 });
 
- class CustomPopover extends React.Component {
+class CustomPopover extends React.Component {
 
     constructor(props) {
         super(props);
@@ -40,9 +40,9 @@ const muiTheme = getMuiTheme({
     };
 
     onChange = (event: object, menuItem: object, index: number) => {
+        this.props.onSelectedAction(this.props.menuList[index]);
         this.setState({
             open: false,
-            value: index
         });
     }
 
@@ -53,7 +53,7 @@ const muiTheme = getMuiTheme({
     render() {
         return (
             <div style={{ width: '10%' }}>
-                <div style={{ cursor: 'pointer'}}
+                <div style={{ cursor: 'pointer' }}
                     onClick={this.handleClick}
                     value={this.state.value}
                     onChange={this.onChangeEvent}
@@ -68,9 +68,11 @@ const muiTheme = getMuiTheme({
                         animation={PopoverAnimationVertical}
                     >
                         <Menu onItemClick={this.onChange}>
-                            <MenuItem primaryText="Manana" />
-                            <MenuItem primaryText="Tarde" />
-                            <MenuItem primaryText="Noche" />
+                            {
+                                this.props.menuList.map((menu, index) =>
+                                    <MenuItem key={index} primaryText={menu} />
+                                )
+                            }
                         </Menu>
                     </Popover>
                 </MuiThemeProvider>

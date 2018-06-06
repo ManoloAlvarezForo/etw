@@ -1,6 +1,7 @@
 export const LOAD_PREACHINGS = 'LOAD_PREACHINGS';
 export const GET_PREACHING_MODEL = 'GET_PREACHING_MODEL';
 export const CLEAN_PREACHING_MODEL = 'CLEAN_PREACHING_MODEL';
+export const UPDATE_PREACHING_MODEL = 'UPDATE_PREACHING_MODEL';
 
 const getPreachingsList = () => {
    return  [
@@ -168,7 +169,7 @@ export const loadPreachings = () => {
 }
 
 export const getPreachingModel = (preachingId?) => {
-  let preaching = { date: 'Nueva Salida', preachings: []};
+  let preaching = { initDate:'', date: 'Nueva Salida', preachings: []};
   let data = getPreachingsList();
     if (preachingId) {
       preaching = data.filter(p => p.id === preachingId)[0];
@@ -177,6 +178,15 @@ export const getPreachingModel = (preachingId?) => {
   return dispatch => {
     dispatch({
       type: GET_PREACHING_MODEL,
+      preaching: preaching
+    });
+  };
+}
+
+export const updatePreaching = (preaching) => {
+  return dispatch => {
+    dispatch({
+      type: UPDATE_PREACHING_MODEL,
       preaching: preaching
     });
   };
