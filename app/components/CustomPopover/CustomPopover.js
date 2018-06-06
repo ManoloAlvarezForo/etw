@@ -19,8 +19,15 @@ class CustomPopover extends React.Component {
 
         this.state = {
             open: false,
-            value: 0
+            value: 0,
+            dataModel: ""
         };
+    }
+
+    componentDidMount() {
+        this.setState({
+            dataModel: this.props.dataModel
+        })
     }
 
     handleClick = (event) => {
@@ -40,9 +47,11 @@ class CustomPopover extends React.Component {
     };
 
     onChange = (event: object, menuItem: object, index: number) => {
-        this.props.onSelectedAction(this.props.value, this.props.menuList[index]);
+        this.props.item[this.props.type] = this.props.menuList[index];
+        this.props.onSelectedAction(this.props.parent);
         this.setState({
             open: false,
+            dataModel: this.props.menuList[index]
         });
     }
 
@@ -57,7 +66,7 @@ class CustomPopover extends React.Component {
                     onClick={this.handleClick}
                     value={this.state.value}
                     onChange={this.onChangeEvent}
-                >{this.props.dataModel}</div>
+                >{this.state.dataModel}</div>
                 <MuiThemeProvider muiTheme={muiTheme}>
                     <Popover
                         open={this.state.open}

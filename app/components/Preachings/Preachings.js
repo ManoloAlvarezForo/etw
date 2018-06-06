@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as TitleActions from "../../actions/title";
 import LargeModal from "../Modals/LargeModal";
-import PreachingForm from "../Preaching/PreachingForm";
+import Preaching from "../Preaching/Preaching";
 
 const styles = {
   mainContainer: {
@@ -119,17 +119,17 @@ class Preachings extends Component {
             <br />
             <div className={preachingStyles.customlist} style={styles.listContainer}>
               {this.props.preachings.map((preaching, index) => (
-                <a onClick={() => this.showDetailPreachingDialog(preaching.id)} style={ styles.listElement} key={index}>
+                <a onClick={() => this.showDetailPreachingDialog(preaching.id)} style={styles.listElement} key={index}>
                   {preaching.initDate + " - " + preaching.endDate}
                 </a>
               ))}
             </div>
             <LargeModal
-              title= {this.props.preaching.initDate + " - " + this.props.preaching.endDate}
-              content={<PreachingForm preaching={this.props.preaching} />}
+              title={this.props.preaching.initDate + " - " + this.props.preaching.endDate}
+              content={<Preaching preaching={this.props.preaching} />}
               modalStyle={this.state.modalStyle}
               closeDialog={this.closeDialog}
-              save={ this.savePreaching }
+              save={this.savePreaching}
             />
           </div>
         </div>

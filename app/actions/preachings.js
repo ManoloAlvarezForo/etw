@@ -10,7 +10,7 @@ const getPreachingsList = () => {
       fullDate: '01 Enero 2018 - 03 Enero 2018',
       initDate: '01 Enero 2018',
       endDate: '03 Enero 2018',
-      preachings: [
+      preachingsDays: [
         {
           date: '1/1/2018',
           day: 'Lunes',
@@ -70,7 +70,7 @@ const getPreachingsList = () => {
       fullDate: '04 Enero 2018 - 07 Enero 2018',
       initDate: '04 Enero 2018',
       endDate: '07 Enero 2018',
-      preachings: [
+      preachingsDays: [
         {
           date: '04 Enero 2018',
           day: 'Lunes',
@@ -163,13 +163,13 @@ export const loadPreachings = () => {
   return dispatch => {
     dispatch({
       type: LOAD_PREACHINGS,
-      preachingsList: preachings
+      preachings: preachings
     });
   };
 }
 
 export const getPreachingModel = (preachingId?) => {
-  let preaching = { initDate:'', date: 'Nueva Salida', preachings: []};
+  let preaching = { initDate:'', date: 'Nueva Salida', preachingsDays: []};
   let data = getPreachingsList();
     if (preachingId) {
       preaching = data.filter(p => p.id === preachingId)[0];
@@ -187,7 +187,7 @@ export const updatePreaching = (preaching) => {
   return dispatch => {
     dispatch({
       type: UPDATE_PREACHING_MODEL,
-      preachingModel: preaching
+      preaching: preaching
     });
   };
 }
@@ -196,7 +196,7 @@ export const cleanPreachingModel = () => {
   return dispatch => {
     dispatch({
       type: CLEAN_PREACHING_MODEL,
-      preaching: { date: '', preachings: []}
+      preaching: { date: '', preachingsDays: []}
     });
   };
 }
