@@ -8,6 +8,7 @@ import { bindActionCreators } from "redux";
 import * as TitleActions from "../../actions/title";
 import LargeModal from "../Modals/LargeModal";
 import Preaching from "../Preaching/Preaching";
+import { withRouter } from 'react-router';
 
 const styles = {
   mainContainer: {
@@ -119,18 +120,12 @@ class Preachings extends Component {
             <br />
             <div className={preachingStyles.customlist} style={styles.listContainer}>
               {this.props.preachings.map((preaching, index) => (
-                <a onClick={() => this.showDetailPreachingDialog(preaching.id)} style={styles.listElement} key={index}>
+                <Link  to={`/preaching/${preaching.id}`} style={styles.listElement} key={index}>
                   {preaching.initDate + " - " + preaching.endDate}
-                </a>
+                </Link>
+
               ))}
             </div>
-            <LargeModal
-              title={this.props.preaching.initDate + " - " + this.props.preaching.endDate}
-              content={<Preaching preaching={this.props.preaching} />}
-              modalStyle={this.state.modalStyle}
-              closeDialog={this.closeDialog}
-              save={this.savePreaching}
-            />
           </div>
         </div>
       </div>

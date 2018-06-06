@@ -20,20 +20,16 @@ const styles = {
   }
 }
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div style={styles.container}>
-        <Sidenav />
-        <div style={styles.content}>
-          <Toolbar />
-          {this.props.children}
-        </div>
+const App = ({children}) => {
+  return (
+    <div style={styles.container}>
+      <Sidenav />
+      <div style={styles.content}>
+        <Toolbar />
+        {children}
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+export default App;
