@@ -17,7 +17,7 @@ export default function preaching(state: Object = { date: '', preachings: [] }, 
     case CLEAN_PREACHING_MODEL:
       return state.preaching = action.preaching;
     case UPDATE_PREACHING_MODEL:
-      return state.preaching = action.preaching;
+      return state.preaching = action.preachingModel;
     default:
       return state;
   }

@@ -40,7 +40,7 @@ class CustomPopover extends React.Component {
     };
 
     onChange = (event: object, menuItem: object, index: number) => {
-        this.props.onSelectedAction(this.props.menuList[index]);
+        this.props.onSelectedAction(this.props.value, this.props.menuList[index]);
         this.setState({
             open: false,
         });

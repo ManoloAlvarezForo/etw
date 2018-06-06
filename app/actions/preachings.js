@@ -187,7 +187,7 @@ export const updatePreaching = (preaching) => {
   return dispatch => {
     dispatch({
       type: UPDATE_PREACHING_MODEL,
-      preaching: preaching
+      preachingModel: preaching
     });
   };
 }

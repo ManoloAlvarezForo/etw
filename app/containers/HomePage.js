@@ -9,7 +9,7 @@ class HomePage extends Component<Props> {
  
   render() {
     return (
-      <Home />
+      <Home  />
     );
   }
 }
