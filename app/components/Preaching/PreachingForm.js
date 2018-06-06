@@ -6,11 +6,14 @@ import styles from "./PreachingForm.css";
 import Section from '../Utils/Section';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
-import Popover, {PopoverAnimationVertical} from 'material-ui/Popover';
+import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import CustomPopover from '../CustomPopover/CustomPopover';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as PreachingsActions from '../../actions/preachings';
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -36,7 +39,8 @@ class PreachingForm extends React.Component {
       menuList: [
         "Maniana", "Tarde", "Noche"
       ],
-      localPreaching: {day: '', date: '', preachingEvents: []} 
+      localPreaching: { day: '', date: '', preachingEvents: [] },
+      localModel: { moment:'', time:'', side: '', preachingLead: '', territory: ''}
     }
   }
 
@@ -46,6 +50,13 @@ class PreachingForm extends React.Component {
     })
   }
 
+  selectedAction = (moment) => {
+    let prevProps = this.props.preaching;
+    prevProps.moment = moment;
+    this.props.updatePreaching(prevProps);
+  }
+
+ 
   render() {
     return (
       <div style={{ flexDirection: "column", display: "flex" }}>
@@ -65,7 +76,7 @@ class PreachingForm extends React.Component {
               title={preachingDay.day + " - " + preachingDay.date}
               content={
                 <div style={{ paddingLeft: "10px" }}>
-                  <div style={{ display: 'flex', flexDirection: 'row', border: '1px solid', borderRadius: '5px', marginBottom: '5px', boxShadow:'rgba(0, 0, 0, 0.2) 0 1px 4px 0', paddingLeft: '5px', paddingRight: '5px'}}>
+                  <div style={{ display: 'flex', flexDirection: 'row', border: '1px solid', borderRadius: '5px', marginBottom: '5px', boxShadow: 'rgba(0, 0, 0, 0.2) 0 1px 4px 0', paddingLeft: '5px', paddingRight: '5px' }}>
                     <div style={{ width: '10%', textAlign: 'center' }}><b>Cuando</b></div>
                     <div style={{ width: '10%', textAlign: 'center' }}><b>Hora</b></div>
                     <div style={{ width: '30%', textAlign: 'center' }}><b>Lugar</b></div>
@@ -74,8 +85,8 @@ class PreachingForm extends React.Component {
                   </div>
                   {preachingDay.preachingEvents.map((preachingEvent, index) => (
 
-                    <div style={{ paddingLeft: '5px', paddingRight: '5px', marginTop: '5px', marginBottom: '5px', borderRadius: '5px', display: 'flex', flexDirection: 'row', boxShadow:'rgba(0, 0, 0, 0.2) 0 1px 4px 0' }} key={index}>
-                       <CustomPopover menuList={this.state.menuList} dataModel= {preachingEvent.moment} />
+                    <div style={{ paddingLeft: '5px', paddingRight: '5px', marginTop: '5px', marginBottom: '5px', borderRadius: '5px', display: 'flex', flexDirection: 'row', boxShadow: 'rgba(0, 0, 0, 0.2) 0 1px 4px 0' }} key={index}>
+                      <CustomPopover menuList={this.state.menuList} dataModel={preachingEvent.moment} onSelectedAction={this.selectedAction} />
                       <div style={{ width: '10%', textAlign: 'center' }}>{preachingEvent.time}</div>
                       <div style={{ width: '30%', textAlign: 'center' }}>{preachingEvent.side}</div>
                       <div style={{ width: '30%', textAlign: 'center' }}>{preachingEvent.preachingLead}</div>
@@ -92,4 +103,14 @@ class PreachingForm extends React.Component {
   }
 }
 
-export default PreachingForm;
+const mapStateToProps = state => {
+  return {
+    preaching: state.preaching
+  };
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(PreachingsActions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PreachingForm);

@@ -24,7 +24,7 @@ const styles = {
   }
 }
 
-const LargeModal = ({ modalStyle, closeDialog, content, title, save }) => {
+const LargeModal = ({ modalStyle, closeDialog, content, title ="", save }) => {
   return (
     <div id="customModal" className={modalStyle}>
       <div className="modal-background"></div>
