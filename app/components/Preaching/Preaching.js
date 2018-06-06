@@ -2,7 +2,7 @@
 import React from "react";
 import DatePicker from "material-ui/DatePicker";
 import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
-import styles from "./PreachingForm.css";
+import styles from "./Preaching.css";
 import Section from '../Utils/Section';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -32,29 +32,21 @@ const CustomDatePicker = ({ hintText }) => {
   )
 }
 
-class PreachingForm extends React.Component {
+class Preaching extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       menuList: [
         "Maniana", "Tarde", "Noche"
-      ],
-      localPreaching: { day: '', date: '', preachingEvents: [] },
-      localModel: { moment:'', time:'', side: '', preachingLead: '', territory: ''},
-      preachingEvent: {}
+      ]
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      localPreaching: this.props.preaching
-    })
-  }
 
-  selectedAction = (value, moment) => {
-    let prevProps = this.props.preaching;
-    prevProps.moment = moment;
-    this.props.updatePreaching(prevProps);
+  selectedAction = (parent) => {
+    let index = this.props.preaching.preachingsDays.indexOf(parent);
+    this.props.preaching.preachingsDays[index] = parent;
+    this.props.updatePreaching(this.props.preaching);
   }
 
  
@@ -71,7 +63,7 @@ class PreachingForm extends React.Component {
           <CustomDatePicker hintText="Fecha Final" />
         </div>
         <div style={{ marginTop: "5px", marginBottom: "5px" }}>
-          {this.props.preaching.preachings.map((preachingDay, index) => (
+          {this.props.preaching.preachingsDays.map((preachingDay, index) => (
             <Section
               key={index}
               title={preachingDay.day + " - " + preachingDay.date}
@@ -87,7 +79,7 @@ class PreachingForm extends React.Component {
                   {preachingDay.preachingEvents.map((preachingEvent, index) => (
 
                     <div style={{ paddingLeft: '5px', paddingRight: '5px', marginTop: '5px', marginBottom: '5px', borderRadius: '5px', display: 'flex', flexDirection: 'row', boxShadow: 'rgba(0, 0, 0, 0.2) 0 1px 4px 0' }} key={index}>
-                      <CustomPopover value={preachingEvent} menuList={this.state.menuList} dataModel={preachingEvent.moment} onSelectedAction={this.selectedAction} />
+                      <CustomPopover parent={preachingDay} item={preachingEvent} menuList={this.state.menuList} type={'moment'} dataModel={preachingEvent.moment} onSelectedAction={this.selectedAction} />
                       <div style={{ width: '10%', textAlign: 'center' }}>{preachingEvent.time}</div>
                       <div style={{ width: '30%', textAlign: 'center' }}>{preachingEvent.side}</div>
                       <div style={{ width: '30%', textAlign: 'center' }}>{preachingEvent.preachingLead}</div>
@@ -114,4 +106,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(PreachingsActions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PreachingForm);
+export default connect(mapStateToProps, mapDispatchToProps)(Preaching);

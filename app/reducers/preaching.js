@@ -10,14 +10,14 @@ type actionType = {
   };
 
 
-export default function preaching(state: Object = { date: '', preachings: [] }, action: actionType) {
+export default function preaching(state = {fullDate: '', initDate: '', endDate: '', preachingsDays: [] }, action: actionType) {
   switch (action.type) {
     case GET_PREACHING_MODEL:
-      return state.preaching = action.preaching;
+      return state = action.preaching;
     case CLEAN_PREACHING_MODEL:
-      return state.preaching = action.preaching;
+      return state = action.preaching;
     case UPDATE_PREACHING_MODEL:
-      return state.preaching = action.preachingModel;
+      return state = action.preaching;
     default:
       return state;
   }
