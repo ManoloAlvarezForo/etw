@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import Home from '../components/Home';
+import Home from '../components/Home/Home';
 
 type Props = {};
 
@@ -9,7 +9,7 @@ class HomePage extends Component<Props> {
  
   render() {
     return (
-      <Home />
+      <Home  />
     );
   }
 }
