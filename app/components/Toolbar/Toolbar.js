@@ -12,7 +12,7 @@ const styles = {
         fontSize: '1.8rem',
         margin: '10px',
         fontWeight: 'bold',
-        color: 'white'
+        color: 'rgb(0, 0, 0)'
     }
 }
 
