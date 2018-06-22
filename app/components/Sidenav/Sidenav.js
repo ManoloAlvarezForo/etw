@@ -27,7 +27,8 @@ const styles = {
     sideNavTitle: {
         height: "90px",
         fontWeight: "bold",
-        color: "rgb(249, 247, 250)",
+        // color: "rgb(249, 247, 250)",
+        color: "rgb(0, 0, 0)",
         fontFamily: "monospace",
         fontSize: "5rem",
         textAlign: "center"
@@ -36,7 +37,9 @@ const styles = {
         fontSize: "1.1rem",
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "center",
+        color: 'rgb(0, 0, 0)',
+        fontWeight: 'bold'
     },
     sideNavBodyContent: {
         display: "flex",
