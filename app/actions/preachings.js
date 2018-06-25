@@ -67,9 +67,9 @@ const getPreachingsList = () => {
     },
     {
       id: 2,
-      fullDate: '04 Enero 2018 - 07 Enero 2018',
+      fullDate: '04 Enero 2018 - 12 Enero 2018',
       initDate: '04 Enero 2018',
-      endDate: '07 Enero 2018',
+      endDate: '12 Enero 2018',
       preachingsDays: [
         {
           date: '04 Enero 2018',
@@ -133,6 +133,96 @@ const getPreachingsList = () => {
         {
           date: '07 Enero 2018',
           day: 'Jueves',
+          month: 'Enero',
+          year: '2018',
+          preachingEvents: [
+            {
+              preachingLead: 'Antonio Banderas',
+              side: 'Casa Resmit',
+              time: '09:15',
+              moment: 'Manana',
+              territory: 'B-1'
+            }
+          ]
+        },
+        {
+          date: '08 Enero 2018',
+          day: 'Viernes',
+          month: 'Enero',
+          year: '2018',
+          preachingEvents: [
+            {
+              preachingLead: 'Antonio Banderas',
+              side: 'Casa Resmit',
+              time: '09:15',
+              moment: 'Manana',
+              territory: 'B-1'
+            }
+          ]
+        },
+        {
+          date: '08 Enero 2018',
+          day: 'Sabado',
+          month: 'Enero',
+          year: '2018',
+          preachingEvents: [
+            {
+              preachingLead: 'Antonio Banderas',
+              side: 'Casa Resmit',
+              time: '09:15',
+              moment: 'Manana',
+              territory: 'B-1'
+            }
+          ]
+        },
+        {
+          date: '09 Enero 2018',
+          day: 'Domingo',
+          month: 'Enero',
+          year: '2018',
+          preachingEvents: [
+            {
+              preachingLead: 'Antonio Banderas',
+              side: 'Casa Resmit',
+              time: '09:15',
+              moment: 'Manana',
+              territory: 'B-1'
+            }
+          ]
+        },
+        {
+          date: '10 Enero 2018',
+          day: 'Lunes',
+          month: 'Enero',
+          year: '2018',
+          preachingEvents: [
+            {
+              preachingLead: 'Antonio Banderas',
+              side: 'Casa Resmit',
+              time: '09:15',
+              moment: 'Manana',
+              territory: 'B-1'
+            }
+          ]
+        },
+        {
+          date: '11 Enero 2018',
+          day: 'Martes',
+          month: 'Enero',
+          year: '2018',
+          preachingEvents: [
+            {
+              preachingLead: 'Antonio Banderas',
+              side: 'Casa Resmit',
+              time: '09:15',
+              moment: 'Manana',
+              territory: 'B-1'
+            }
+          ]
+        },
+        {
+          date: '12 Enero 2018',
+          day: 'Miercoles',
           month: 'Enero',
           year: '2018',
           preachingEvents: [
