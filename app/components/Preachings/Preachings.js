@@ -20,7 +20,8 @@ const styles = {
     flexDirection: "column",
     height: "100vh",
     backgroundColor: "#dedede",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    boxShadow: "rgba(0, 0, 0, 0.2) 0px -1px 8px 0px"
   },
   preachingsContainer: {
     display: "flex",
@@ -44,7 +45,7 @@ const styles = {
     fontSize: "20px",
     fontWeight: "bold",
     borderRadius: "5px",
-    boxShadow: "rgba(0, 0, 0, 0.2) 0px 3px 8px 1px"
+    boxShadow: "rgba(0, 0, 0, 0.2) 0 1px 4px 0"
   },
   buttonContainer: {
     width: "42px"

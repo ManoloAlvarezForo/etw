@@ -22,6 +22,7 @@ const muiTheme = getMuiTheme({
   }
 });
 
+
 const CustomDatePicker = ({ hintText }) => {
   return (
     <MuiThemeProvider muiTheme={muiTheme}>
@@ -32,6 +33,24 @@ const CustomDatePicker = ({ hintText }) => {
     </MuiThemeProvider>
   )
 }
+
+const Arrow = () => {
+  return(
+   <div style={{ display: "flex", alignItems: "center" }}>
+   <div style={{ marginLeft: "20px", marginRight: "20px" }}>
+     <b style={{color: 'black', fontWeight: 'bold'}}> --> </b>
+   </div>
+ </div>
+  )
+ }
+
+ const EditButtons = () => {
+   return(
+     <div>
+      <button></button>
+     </div>
+   )
+ }
 
 class Preaching extends React.Component {
   constructor(props) {
@@ -47,28 +66,23 @@ class Preaching extends React.Component {
     this.props.getPreachingModel(parseInt(this.props.id));
   }
 
-
   selectedAction = (parent) => {
     let index = this.props.preaching.preachingsDays.indexOf(parent);
     this.props.preaching.preachingsDays[index] = parent;
     this.props.updatePreaching(this.props.preaching);
   }
-
  
   render() {
     return (
       <div style={{ height: '100vh', margin: '10px', backgroundColor: 'rgb(222, 222, 222)', borderRadius: '5px'}} className="animated slideInRight">
       <div style={{ flexDirection: "column", display: "flex",height: '100vh', margin: '10px', overflow: 'hidden' }}>
-        <div className={styles.date_selection}>
+        <div style={{minHeight: '60px', zIndex: '3000', display: 'flex', flexDirection: 'row'}} className={styles.date_selection}>
           <CustomDatePicker hintText="Fecha de Inicio" />
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div style={{ marginLeft: "20px", marginRight: "20px" }}>
-              <b> --> </b>
-            </div>
-          </div>
+          <Arrow />
           <CustomDatePicker hintText="Fecha Final" />
+          <EditButtons />
         </div>
-        <div style={{ marginTop: "5px", marginBottom: "5px", overflow: 'auto', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', }}>
+        <div style={{ height: 'calc(100vh - 140px)', marginBottom: "5px", overflow: 'auto', paddingLeft: '10px', paddingRight: '10px', paddingTop: '5px', paddingBottom: '5px', }}>
           {this.props.preaching.preachingsDays.map((preachingDay, index) => (
             <Section
               key={index}
@@ -83,7 +97,6 @@ class Preaching extends React.Component {
                     <div style={{ width: '20%', textAlign: 'center' }}><b>Territorio</b></div>
                   </div>
                   {preachingDay.preachingEvents.map((preachingEvent, index) => (
-
                     <div style={{ paddingLeft: '5px', paddingRight: '5px', marginTop: '5px', marginBottom: '5px', borderRadius: '5px', display: 'flex', flexDirection: 'row', boxShadow: 'rgba(0, 0, 0, 0.2) 0 1px 4px 0' }} key={index}>
                       <CustomPopover parent={preachingDay} item={preachingEvent} menuList={this.state.menuList} type={'moment'} dataModel={preachingEvent.moment} onSelectedAction={this.selectedAction} />
                       <div style={{ width: '10%', textAlign: 'center' }}>{preachingEvent.time}</div>

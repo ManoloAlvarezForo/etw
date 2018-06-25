@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Section.css'
 
 class Section extends Component {
   constructor(props) {
@@ -34,9 +35,12 @@ class Section extends Component {
     return (
       <div className={this.state.class}>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <div className="sectionhead" onClick={this.handleClick}>{this.props.title}</div>
+          <div className="sectionHead" onClick={this.handleClick} style={{display: 'flex', flexDirection: 'column'}}>
+          <div style={{fontWeight: 'bold'}}>{this.props.title}</div>
+          <div style={{fontStyle: 'italic', fontSize: '13px'}}>2 Salidas</div>
+          </div>
         </div>
-        <div className="articlewrap">
+        <div className="articleWrap">
           <div className="article">
             {this.props.content}
           </div>
